@@ -1,0 +1,9 @@
+{
+  "imports": {
+    "src/": "./src/",
+    "@/": "./",
+    "runner/": "./runner/",
+    "utils/": "./utils/",
+    "git/": "./git/"
+  }
+}
