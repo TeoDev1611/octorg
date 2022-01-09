@@ -3,6 +3,7 @@ import * as clone from "core/clone.ts";
 import * as info from "core/info.ts";
 import * as create from "core/create.ts";
 import * as remove from "core/delete.ts";
+import * as list from "core/list.ts";
 
 export const Core = {
   Git: {
@@ -29,5 +30,8 @@ export const Core = {
   },
   Delete: {
     RemoveRepo: (name: string, github?: boolean) => remove.Delete(name, github),
+  },
+  List: {
+    GetFolders: (name: string) => list.List(name),
   },
 };

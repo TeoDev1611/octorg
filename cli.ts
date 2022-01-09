@@ -96,4 +96,13 @@ app
     }
   });
 
+app
+  .command("list [name]", "List the repos managed by octorg!")
+  .alias("get", "repos")
+  .action(({ name }: any) => {
+    if (typeof name == "string") {
+      Core.List.GetFolders(name);
+    }
+  });
+
 app.parse(Deno.args);
