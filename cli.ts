@@ -1,6 +1,5 @@
 import Denomander from "https://deno.land/x/denomander@0.9.1/mod.ts";
-import { CloneRepo } from "git/clone.ts";
-import { GoTooctorg } from "git/goToDir.ts";
+import { Core } from "core/mod.ts";
 
 const app = new Denomander({
   app_name: "octorg",
@@ -29,7 +28,7 @@ app
     }
     if (typeof repo == "string") {
       nofast = (typeof app.nofast == "undefined") ? true : nofast;
-      CloneRepo(repo, github, nofast);
+      Core.Git.Clone(repo, github, nofast);
     }
   });
 app
@@ -38,10 +37,27 @@ app
   .action(() => {
     if (typeof app.repo == "string") {
       if (app.repo != " ") {
-        GoTooctorg(app.repo);
+        Core.Dirs.Cd(app.repo);
       }
     }
-    GoTooctorg();
+    Core.Dirs.Cd();
+  });
+
+app
+  .command("info", "Get the information about octorg tool")
+  .option("-v --version", "Show the versions of the tools")
+  .option("-i --issue", "Open the issue page for report bugs!")
+  .action(() => {
+    if (typeof app.version == "boolean") {
+      if (app.version == true) {
+        Core.Info.Version();
+      }
+    }
+    if (typeof app.issue == "boolean") {
+      if (app.issue == true) {
+        Core.Info.Issues();
+      }
+    }
   });
 
 app.parse(Deno.args);

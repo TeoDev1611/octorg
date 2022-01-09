@@ -77,3 +77,12 @@ export function error(message: string) {
   log.getLogger("errorFmt").error(`${Headers.octorgHeader} ${message}`);
   Deno.exit(2);
 }
+
+/**
+ * The Done function log
+ * @param msg Message to print in out
+ */
+export function Done(msg: string) {
+  const DoneSym = colors.green("✓ DONE! :");
+  console.log(`${DoneSym} ${msg}`);
+}

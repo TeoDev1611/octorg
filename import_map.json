@@ -4,6 +4,7 @@
     "@/": "./",
     "runner/": "./runner/",
     "utils/": "./utils/",
-    "git/": "./git/"
+    "core/": "./core/",
+    "exec/": "./core/exec/"
   }
 }

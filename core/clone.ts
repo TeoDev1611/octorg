@@ -1,10 +1,6 @@
-import { exec } from "https://deno.land/x/exec@0.0.5/mod.ts";
+import { Run } from "exec/exec.ts";
 import * as files from "utils/files.ts";
 import * as log from "utils/logs.ts";
-
-function endsWith(str: string, suffix: string) {
-  return str.indexOf(suffix, str.length - suffix.length) !== -1;
-}
 
 export async function CloneRepo(
   repo: string,
@@ -29,5 +25,5 @@ export async function CloneRepo(
   }
   log.info(`Repo to clone!: ${repo}`);
   log.info(`Cmd to execute!: ${cmd}`);
-  await exec(cmd);
+  await Run(cmd);
 }
