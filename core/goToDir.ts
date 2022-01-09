@@ -1,13 +1,13 @@
-import * as files from "utils/files.ts";
+import { Utils } from "utils/mod.ts";
 export function GoTooctorg(repo?: string) {
   let cmd;
   if (typeof repo == "string") {
     cmd = repo.replace("https://", "");
-    console.log(files.GetoctorgPath(cmd));
+    console.log(Utils.Files.Get.OctoOrgDir(cmd));
 
     Deno.exit(2);
   }
-  cmd = files.GetoctorgPath("  ");
+  cmd = Utils.Files.Get.OctoOrgDir("  ");
   console.log(cmd);
   Deno.exit(1);
 }

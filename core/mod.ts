@@ -1,6 +1,7 @@
 import * as dir from "core/goToDir.ts";
 import * as clone from "core/clone.ts";
 import * as info from "core/info.ts";
+import * as create from "core/create.ts";
 
 export const Core = {
   Git: {
@@ -20,5 +21,9 @@ export const Core = {
     Issues: () => {
       info.OpenTheRepoIssue();
     },
+  },
+  Create: {
+    InitRepo: (name: string, github?: boolean) => create.Create(name, github),
+    Path: (name: string) => create.Path(name),
   },
 };

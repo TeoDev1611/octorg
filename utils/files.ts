@@ -1,5 +1,6 @@
 import { dirs, fs, path } from "@/deps.ts";
 import * as log from "utils/logs.ts";
+import { IsWindows } from "utils/os.ts";
 
 export const currentDir: string = Deno.cwd();
 
@@ -33,12 +34,12 @@ export function getConfigDir(file: string): string {
   return path.join(configDir, "octorg", file);
 }
 
-export function GetoctorgPath(folderName: string): string {
+export function getOctorgPath(folderName?: string): string {
   if (existsFile(path.join(homeDir, "octorg")) != true) {
     Deno.mkdir(path.join(homeDir, "octorg"));
     log.info("octorg Path base is created!");
   }
-  return path.join(homeDir, "octorg", folderName);
+  return path.join(homeDir, "octorg", folderName!);
 }
 
 /**
@@ -65,5 +66,13 @@ export function existsFile(file: string): boolean {
     return true;
   } else {
     return false;
+  }
+}
+
+export function GetSep(): string {
+  if (IsWindows()) {
+    return `\\`;
+  } else {
+    return "/";
   }
 }

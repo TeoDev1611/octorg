@@ -60,4 +60,22 @@ app
     }
   });
 
+app
+  .command("create [name]", "Create a new repo managed by octorg!")
+  .option("-g --github", "Init the repo with the github preset!")
+  .alias("init")
+  .action(({ name }: any) => {
+    let github;
+    if (typeof app.github == "boolean") {
+      if (app.github == true) {
+        github = true;
+      } else {
+        github = false;
+      }
+    }
+    if (typeof name == "string") {
+      Core.Create.InitRepo(name, github);
+    }
+  });
+
 app.parse(Deno.args);
