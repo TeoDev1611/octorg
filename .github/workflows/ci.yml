@@ -1,0 +1,28 @@
+name: Deno Check Fmt and lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1.0.0
+        with:
+          deno-version: 1.17.1
+
+      - name: Run Fmt Checker
+        run: deno fmt --check
+
+      - name: Run Linter Checker
+        run: deno lint --rules-exclude=no-explicit-any
+
+      - name: Check Dprint
+        uses: dprint/check@v2.0
+
