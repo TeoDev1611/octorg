@@ -78,4 +78,22 @@ app
     }
   });
 
+app
+  .command("delete [name]", "Delete a new repo managed by octorg!")
+  .option("-g --github", "Init the repo with the github preset!")
+  .alias("remove", "rm")
+  .action(({ name }: any) => {
+    let github;
+    if (typeof app.github == "boolean") {
+      if (app.github == true) {
+        github = true;
+      } else {
+        github = false;
+      }
+    }
+    if (typeof name == "string") {
+      Core.Delete.RemoveRepo(name, github);
+    }
+  });
+
 app.parse(Deno.args);
