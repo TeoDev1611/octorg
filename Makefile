@@ -1,5 +1,5 @@
 fmt:
-	deno fmt && dprint fmt
+	deno fmt -c deno.json && dprint fmt
 
 install-win:
 	powershell -Command 'iwr https://deno.land/install.ps1 -useb | iex'
