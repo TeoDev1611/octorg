@@ -4,8 +4,8 @@ Octocat help you to organize the repositories!
 
 ## Why this?
 
-Well exists the [ghq](https://github.com/x-motemen/ghq) tool but is necessary
-add new functions to this amazing tool, and this make octorg:
+Well exists the [ghq](https://github.com/x-motemen/ghq) tool but is
+necessary add new functions to this amazing tool, and this make octorg:
 
 **Add this functions:**
 

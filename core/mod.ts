@@ -1,9 +1,9 @@
-import * as dir from "core/goToDir.ts";
-import * as clone from "core/clone.ts";
-import * as info from "core/info.ts";
-import * as create from "core/create.ts";
-import * as remove from "core/delete.ts";
-import * as list from "core/list.ts";
+import * as dir from 'core/goToDir.ts';
+import * as clone from 'core/clone.ts';
+import * as info from 'core/info.ts';
+import * as create from 'core/create.ts';
+import * as remove from 'core/delete.ts';
+import * as list from 'core/list.ts';
 
 export const Core = {
   Git: {
@@ -25,11 +25,13 @@ export const Core = {
     },
   },
   Create: {
-    InitRepo: (name: string, github?: boolean) => create.Create(name, github),
+    InitRepo: (name: string, github?: boolean) =>
+      create.Create(name, github),
     Path: (name: string) => create.Path(name),
   },
   Delete: {
-    RemoveRepo: (name: string, github?: boolean) => remove.Delete(name, github),
+    RemoveRepo: (name: string, github?: boolean) =>
+      remove.Delete(name, github),
   },
   List: {
     GetFolders: (name: string) => list.List(name),

@@ -18,10 +18,10 @@ jobs:
           deno-version: 1.17.1
 
       - name: Run Fmt Checker
-        run: deno fmt --check
+        run: deno fmt -c deno.json --check
 
       - name: Run Linter Checker
-        run: deno lint --rules-exclude=no-explicit-any
+        run: deno lint -c deno.json
 
       - name: Check Dprint
         uses: dprint/check@v2.0

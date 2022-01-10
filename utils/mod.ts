@@ -1,6 +1,6 @@
-import * as files from "utils/files.ts";
-import * as log from "utils/logs.ts";
-import * as os from "utils/os.ts";
+import * as files from 'utils/files.ts';
+import * as log from 'utils/logs.ts';
+import * as os from 'utils/os.ts';
 
 export const Utils = {
   Log: {

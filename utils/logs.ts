@@ -1,35 +1,35 @@
-import * as log from "https://deno.land/std@0.120.0/log/mod.ts";
-import { colors } from "@/deps.ts";
-import { getLogPath } from "utils/files.ts";
+import * as log from 'https://deno.land/std@0.120.0/log/mod.ts';
+import { colors } from '@/deps.ts';
+import { getLogPath } from 'utils/files.ts';
 
 export const Headers = {
   octorgHeader: `octorg ->`,
   logsSym: {
-    info: "ⓘ INFO:",
-    error: "✗ ERROR:",
-    warn: "⚠ WARNING:",
+    info: 'ⓘ INFO:',
+    error: '✗ ERROR:',
+    warn: '⚠ WARNING:',
   },
 };
 
 await log.setup({
   handlers: {
-    file: new log.handlers.FileHandler("INFO", {
-      filename: getLogPath("octorg.log"),
-      formatter: "[ octorg ]: {levelName} -> {msg}",
+    file: new log.handlers.FileHandler('INFO', {
+      filename: getLogPath('octorg.log'),
+      formatter: '[ octorg ]: {levelName} -> {msg}',
     }),
-    infoFormatter: new log.handlers.ConsoleHandler("INFO", {
+    infoFormatter: new log.handlers.ConsoleHandler('INFO', {
       formatter: (logRecord: any) => {
         const InfoSym = colors.brightCyan(Headers.logsSym.info);
         return `${InfoSym} ${logRecord.msg}`;
       },
     }),
-    errorFormatter: new log.handlers.ConsoleHandler("ERROR", {
+    errorFormatter: new log.handlers.ConsoleHandler('ERROR', {
       formatter: (logRecord: any) => {
         const ErrorSym = colors.brightRed(Headers.logsSym.error);
         return `${ErrorSym} ${logRecord.msg}`;
       },
     }),
-    warnFormatter: new log.handlers.ConsoleHandler("WARNING", {
+    warnFormatter: new log.handlers.ConsoleHandler('WARNING', {
       formatter: (logRecord: any) => {
         const WarnSym = colors.brightYellow(Headers.logsSym.warn);
         return `${WarnSym} ${logRecord.msg}`;
@@ -39,16 +39,16 @@ await log.setup({
 
   loggers: {
     infoFmt: {
-      level: "INFO",
-      handlers: ["file", "infoFormatter"],
+      level: 'INFO',
+      handlers: ['file', 'infoFormatter'],
     },
     errorFmt: {
-      level: "ERROR",
-      handlers: ["file", "errorFormatter"],
+      level: 'ERROR',
+      handlers: ['file', 'errorFormatter'],
     },
     warnFmt: {
-      level: "WARNING",
-      handlers: ["file", "warnFormatter"],
+      level: 'WARNING',
+      handlers: ['file', 'warnFormatter'],
     },
   },
 });
@@ -58,7 +58,7 @@ await log.setup({
  * @param message Message to log
  */
 export function info(message: string) {
-  log.getLogger("infoFmt").info(`${Headers.octorgHeader} ${message} `);
+  log.getLogger('infoFmt').info(`${Headers.octorgHeader} ${message} `);
 }
 
 /**
@@ -66,7 +66,7 @@ export function info(message: string) {
  * @param message Message to log
  */
 export function warn(message: string) {
-  log.getLogger("warnFmt").warning(`${Headers.octorgHeader} ${message}`);
+  log.getLogger('warnFmt').warning(`${Headers.octorgHeader} ${message}`);
 }
 
 /**
@@ -74,7 +74,7 @@ export function warn(message: string) {
  * @param message Message to log
  */
 export function error(message: string) {
-  log.getLogger("errorFmt").error(`${Headers.octorgHeader} ${message}`);
+  log.getLogger('errorFmt').error(`${Headers.octorgHeader} ${message}`);
   Deno.exit(2);
 }
 
@@ -83,6 +83,6 @@ export function error(message: string) {
  * @param msg Message to print in out
  */
 export function Done(msg: string) {
-  const DoneSym = colors.green("✓ DONE! :");
+  const DoneSym = colors.green('✓ DONE! :');
   console.log(`${DoneSym} ${msg}`);
 }

@@ -1,10 +1,15 @@
 {
   "incremental": true,
+  "json": {
+  },
   "markdown": {
   },
-  "includes": ["**/*.{md}"],
-  "excludes": [],
+  "includes": ["**/*.{json,md}"],
+  "excludes": [
+    "**/*-lock.json"
+  ],
   "plugins": [
+    "https://plugins.dprint.dev/json-0.14.0.wasm",
     "https://plugins.dprint.dev/markdown-0.12.0.wasm"
   ]
 }
