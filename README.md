@@ -16,7 +16,7 @@ necessary add new functions to this amazing tool, and this make octorg:
 ## Installation
 
 ```
-deno install -A -f --no-check --unstable -n octorg --import-map=https://deno.land/x/octorg@1.0/import_map.json https://deno.land/x/octorg@1.0/cli.ts
+deno install -A -f --no-check --unstable -n octorg --import-map=https://deno.land/x/octorg@1.1/import_map.json https://deno.land/x/octorg@1.1/cli.ts
 ```
 
 ## Demos
